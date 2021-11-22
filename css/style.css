@@ -1,0 +1,249 @@
+@charset "utf-8";
+/* CSS Document */
+
+:root {
+    --accent-c1:#C2A45E;
+    --accent-c2:#8A702D;
+    --main-c:#FFEFCA;
+
+    --red-c:#7C0045;
+    --white-c:#ECE6EF; 
+    --pupr-c:#8B739B; 
+	--green-c: #005B4D;
+}
+
+body{
+	margin:0px;
+	padding: 0px;
+
+	overflow-x: hidden;
+}
+a{
+	text-decoration:none;
+}
+.box{
+	width:300px;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+	border-radius: 10px;
+	overflow: visible;
+	margin: 25px;
+	background-color: var(--main-c);
+}
+.slide-img{
+	height: 450px;
+    position: relative;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.java-img {
+	margin-top: 47px;
+	height: 360px;
+}
+.slide-img img{
+	z-index: 1;
+}
+.detail-box{
+	width: 100%;
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font-family: calibri;
+}
+.type{
+	display: flex;
+	flex-direction: column;
+	color: var(--accent-c1);
+}
+.type a{
+	color:var(--accent-c2);
+	margin: 5px 0px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding-right: 8px;
+}
+.type span{
+	color:rgba(26,26,26,0.5);
+}
+.experience{
+	color: black;
+	font-weight: 600;
+	font-size: 0.9rem;
+	font-family: poppins;
+	letter-spacing: 0.5px;
+}
+.underlay{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 10px 10px 0 0;
+	transform: translate(-50%,-50%);
+	width:100%;
+	height: 100%;
+	background-color: var(--green-c);
+    background-image: linear-gradient(180deg, var(--green-c) 0%, var(--accent-c2) 74%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.more-btn{
+	width:80px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFFFFF;
+	color:#252525;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-family: calibri;
+	border-radius: 5px;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+}
+.more-btn:hover{
+	color:#FFFFFF;
+	background-color: #f15fa3;
+	transition: all ease 0.3s;
+}
+.underlay{
+	opacity: 0.05;
+}
+.slide-img:hover .underlay{
+	animation:fade 4s;
+	animation-delay: 0.2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+ 
+@keyframes fade{
+	0%{
+		opacity: 0.05;
+	}
+	20%{
+		opacity: 0.1;
+	}
+	40%{
+		opacity: 0.2;
+	}
+	50%{
+		opacity: 0.25;
+	}
+	60%{
+		opacity: 0.15;
+	}
+	80% {
+		opacity: 0.1;
+	}
+	100%{
+		opacity: 0.05;
+	}
+}
+.slider{
+	width:100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--accent-c2);
+}
+.me {
+	height: 400px;
+	border: 1px solid;
+}
+
+/*NAV*/
+
+/*primary-header*/
+
+.logo {
+	margin: 2rem;
+}
+
+.sr-only {display: none;}
+.mobile-nav-toggle {display: none;}
+
+.primary-header {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.primary-navigation {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	background: hsl(0 0% 0% / 0.5);
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+	.primary-navigation {
+		background: hsl(0 0% 0% / 0.1);
+		backdrop-filter: blur(2rem);
+	}
+}
+
+.primary-navigation a {
+	text-decoration: none;
+}
+
+.primary-navigation a > [aria-hidden="true"] {
+	font-weight: 700;
+	margin-inline-end: 0.5em, 
+}
+
+@media (max-width: 35em) {
+	.primary-navigation {
+		z-index: 1000;
+
+		--gap: 2em;
+
+		position: fixed;
+		inset: 0 0 0 30%;
+
+		flex-direction: column;
+		padding: min(30vh, 10rem) 2rem;
+
+		transform: translateX(100%);
+		transition: 350ms ease-out;
+
+	}
+
+	.primary-navigation > [data-visable="true"] {
+		transform: translateX(0%);
+	}
+
+	.mobile-nav-toggle {
+		display: block;
+		z-index: 9999;
+		position: absolute;
+		background-color: transparent;
+		background-image: url("https://img.icons8.com/material/32/000000/menu--v1.png");
+		width: 2rem;
+		aspect-ratio: 1;
+		border: 0;
+		top: 2rem;
+		right: 2rem;
+		cursor: pointer;
+	}
+
+	.mobile-nav-toggle[aria-expanded="true"] {
+		background-image: url("https://img.icons8.com/material/32/000000/menu--v1.png");
+	}
+}
+
+@media (min-width: 35em) {
+	.primary-navigation {
+		--gap: clamp(1.5rem, 5vw, 3rem);
+		padding-block: 2rem;
+		padding-inline: clamp(3rem, 10vw, 10rem);
+	}
+}
+
+.flex {
+	display: flex;
+	gap: var(--gap, 2rem);
+}
+ 
